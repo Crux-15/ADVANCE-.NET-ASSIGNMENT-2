@@ -3,19 +3,19 @@
 <H1>Create Donor</H1>
 
 <form method="post">
-    Full Name: 
+    <label>Full Name:</label>
     <input type="text" name="FullName" /><br />
     <span class="text-bg-danger">@Html.ValidationMessage("FullName")</span>
-    Blood Group: 
+    <label>Blood Group:</label>
     <input type="text" name="BloodGroup" /><br />
     <span class="text-bg-danger">@Html.ValidationMessage("BloodGroup")</span>
-    Contact Number: 
+    <label>Contact Number:</label>
     <input type="text" name="ContactNumber" /><br />
     <span class="text-bg-danger">@Html.ValidationMessage("ContactNumber")</span>
-    City: 
+    <label>City:</label>
     <input type="text" name="City" /><br />
     <span class="text-bg-danger">@Html.ValidationMessage("City")</span>
-    Last Donated Date: 
+    <label>Last Donated Date:</label>
     <input type="date" name="LastDonatedDate" /><br />
     <span class="text-bg-danger">@Html.ValidationMessage("LastDonatedDate")</span>
     <input type="submit" value="Create Donor" />

@@ -88,5 +88,34 @@ namespace MidAssignment2.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var donor = db.Donors.Find(id);
+            return View(donor);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(DonorsModel d)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(d);
+            }
+            var donor = db.Donors.Find(d.DonorId);
+            donor.FullName = d.FullName;
+            donor.BloodGroup = d.BloodGroup;
+            donor.ContactNo = d.ContactNumber;
+            donor.City = d.City;
+            donor.LastDonationDate = DateOnly.FromDateTime(d.LastDonatedDate);
+            db.SaveChanges();
+            return RedirectToAction("DonorList");
+        }
+
+
+
+
+
+
     }
 }

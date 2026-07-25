@@ -1,0 +1,17 @@
+﻿@{
+}
+
+<form method="post">
+    <input type="hidden" name="DonorId" value="@Model.DonorId" />
+    <label>Full Name:</label>
+    <input type="text" name="FullName" value="@Model.FullName" /><br />
+    <label>Blood Group:</label>
+    <input type="text" name="BloodGroup" value="@Model.BloodGroup" /><br />
+    <label>Contact Number:</label>
+    <input type="text" name="ContactNumber" value="@Model.ContactNo" /><br />
+    <label>City:</label>
+    <input type="text" name="City" value="@Model.City" /><br />
+    <label>Last Donated Date:</label>
+    <input type="date" name="LastDonatedDate" value="@Model.LastDonationDate.ToString("yyyy-MM-dd")" /><br />
+    <input type="submit" value="Update Donor" />
+</form>
