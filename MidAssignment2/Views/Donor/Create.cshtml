@@ -1,0 +1,22 @@
+﻿@{
+}
+<H1>Create Donor</H1>
+
+<form method="post">
+    Full Name: 
+    <input type="text" name="FullName" /><br />
+    <span class="text-bg-danger">@Html.ValidationMessage("FullName")</span>
+    Blood Group: 
+    <input type="text" name="BloodGroup" /><br />
+    <span class="text-bg-danger">@Html.ValidationMessage("BloodGroup")</span>
+    Contact Number: 
+    <input type="text" name="ContactNumber" /><br />
+    <span class="text-bg-danger">@Html.ValidationMessage("ContactNumber")</span>
+    City: 
+    <input type="text" name="City" /><br />
+    <span class="text-bg-danger">@Html.ValidationMessage("City")</span>
+    Last Donated Date: 
+    <input type="date" name="LastDonatedDate" /><br />
+    <span class="text-bg-danger">@Html.ValidationMessage("LastDonatedDate")</span>
+    <input type="submit" value="Create Donor" />
+</form>

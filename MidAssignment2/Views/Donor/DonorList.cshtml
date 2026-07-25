@@ -1,0 +1,61 @@
+﻿@{
+}
+
+Show Data of Particular Blood Group Donors
+Select Blood Group:
+<form method="get" action="Donor/DonorList">
+    <input type="radio" name="BloodGroup" value="All" /> All<br />
+    <input type="radio" name="BloodGroup" value="A+" /> A+<br />
+    <input type="radio" name="BloodGroup" value="A-" /> A-<br />
+    <input type="radio" name="BloodGroup" value="B+" /> B+<br />
+    <input type="radio" name="BloodGroup" value="B-" /> B-<br />
+    <input type="radio" name="BloodGroup" value="AB+" /> AB+<br />
+    <input type="radio" name="BloodGroup" value="AB-" /> AB-<br />
+    <input type="radio" name="BloodGroup" value="O+" /> O+<br />
+    <input type="radio" name="BloodGroup" value="O-" /> O- <br />
+
+    <input type="submit" value="Filter" />
+</form>
+
+@if (Model == null)
+{
+    <h2>No donors found.</h2>
+}
+else if (Model.Count > 0)
+{
+    <h3>Sorted Donors by Last Donated Date</h3>
+    <h1>Donor List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Donor ID</th>
+                <th>Full Name</th>
+                <th>Blood Group</th>
+                <th>Contact Number</th>
+                <th>City</th>
+                <th>Last Donated Date</th>
+                <th>Donation Count</th>
+                
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var donor in Model)
+            {
+                <tr>
+                    <td>@donor.DonorId</td>
+                    <td>@donor.FullName</td>
+                    <td>@donor.BloodGroup</td>
+                    <td>@donor.ContactNo</td>
+                    <td>@donor.City</td>
+                    <td>@donor.LastDonationDate.ToShortDateString()</td>
+                    <td>@donor.DonationCount</td>
+                    
+                    <td><a class="btn btn-success" href="/Donor/Edit/@donor.DonorId">Edit</a></td>
+                    <td><a class="btn btn-danger" href="/Donor/Delete/@donor.DonorId">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
