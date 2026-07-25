@@ -1,22 +1,42 @@
-﻿@{
-}
+﻿
+
+
 <H1>Create Donor</H1>
 
 <form method="post">
-    <label>Full Name:</label>
-    <input type="text" name="FullName" /><br />
-    <span class="text-bg-danger">@Html.ValidationMessage("FullName")</span>
-    <label>Blood Group:</label>
-    <input type="text" name="BloodGroup" /><br />
-    <span class="text-bg-danger">@Html.ValidationMessage("BloodGroup")</span>
-    <label>Contact Number:</label>
-    <input type="text" name="ContactNumber" /><br />
-    <span class="text-bg-danger">@Html.ValidationMessage("ContactNumber")</span>
-    <label>City:</label>
-    <input type="text" name="City" /><br />
-    <span class="text-bg-danger">@Html.ValidationMessage("City")</span>
-    <label>Last Donated Date:</label>
-    <input type="date" name="LastDonatedDate" /><br />
-    <span class="text-bg-danger">@Html.ValidationMessage("LastDonatedDate")</span>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Blood Group</th>
+                <th>Contact Number</th>
+                <th>City</th>
+                <th>Last Donated Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" name="FullName" /></td>
+                <td><input type="text" name="BloodGroup" /></td>              
+                <td><input type="text" name="ContactNumber" /></td>
+                <td><input type="text" name="City" /></td>
+                <td><input type="date" name="LastDonatedDate" /></td> 
+            </tr>
+            @if(ViewData.ModelState.ErrorCount > 0)
+            {
+                <tr>
+                    <td colspan="5">
+                        <ul class="text-bg-danger">
+                            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                            {
+                                <li>@error.ErrorMessage</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            })
+        </tbody>
+    </table>
+    
     <input type="submit" value="Create Donor" />
 </form>

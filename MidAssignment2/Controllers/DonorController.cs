@@ -112,6 +112,25 @@ namespace MidAssignment2.Controllers
             return RedirectToAction("DonorList");
         }
 
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var donor = db.Donors.Find(id);
+            return View(donor);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(string flag, int id)
+        {
+            if (flag == "yes")
+            {
+                var donor = db.Donors.Find(id);
+                db.Donors.Remove(donor);
+                db.SaveChanges();
+            }
+            return RedirectToAction("DonorList");
+        }
+
 
 
 
